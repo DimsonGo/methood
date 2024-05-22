@@ -1,9 +1,8 @@
 import java.time.LocalDate;
 public class Main {
     public static void main(String[] args) {
-        checkYear(LocalDate.now().getYear());
         checkYear(2025);
-        deviceOs(0, 2013);
+        deviceOs(1, 2024);
 
         int days = calculateDistance(56);;
         if (days > 0){
@@ -15,7 +14,7 @@ public class Main {
 
 
     public static void checkYear(int year) {
-        if (year % 4 == 0 && year / 100 != 0 || year % 400 == 0 && year > 1584) {
+        if (year % 4 == 0 && year % 100 != 0 || year % 400 == 0 && year > 1584) {
             System.out.println(year + " високосный");
         } else {
             System.out.println(year + " невисокосный");
@@ -38,15 +37,14 @@ public class Main {
 
 
     public static void deviceOs(int userOs, int yearOs) {
-        int currentYear = LocalDate.now().getYear();
-        if (userOs == 0 && currentYear > 2015 && yearOs >= 2015 && yearOs <= 2027){
-            System.out.println("Установите обновление на айфон");
-        } else if (userOs == 0 && yearOs <= currentYear){
-            System.out.println("Уставновите облегченное обновление на айфон");
-        } else if (userOs == 1 && currentYear > 2015 && yearOs >= 2015 && yearOs <= 2027 ) {
-            System.out.println("Установите обновление на андройд");
-        } else if (userOs == 1 && yearOs <= currentYear) {
-            System.out.println("Установите облегченное обновление на андройд");
+        if (userOs == 0 && yearOs == 2024 && yearOs <= 2027){
+            System.out.println("Установите обновление на IOS");
+        } else if (userOs == 0 && yearOs <= 2023){
+            System.out.println("Уставновите облегченное обновление на IOS");
+        } else if (userOs == 1 && yearOs == 2024 && yearOs <= 2027 ) {
+            System.out.println("Установите обновление на Android");
+        } else if (userOs == 1 && yearOs <= 2023) {
+            System.out.println("Установите облегченное обновление на Android");
         }
     }
 }
